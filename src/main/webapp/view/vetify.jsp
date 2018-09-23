@@ -17,7 +17,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -57,7 +58,7 @@ firebase.auth().signOut().then(function() {
 }).catch(function(error) {
   // An error happened.
 });
-    }
+    
     
 </script>
  <a href="../index.jsp">
@@ -75,5 +76,6 @@ firebase.auth().signOut().then(function() {
         if (email_vetified)
             window.location.href='account.jsp';
     }
+    
     </script>
 </html>
