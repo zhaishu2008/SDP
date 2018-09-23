@@ -14,7 +14,8 @@
         <link rel="stylesheet" href="style.css" type="text/css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+        
+<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -26,10 +27,7 @@
     messagingSenderId: "1538681596"
   };
   firebase.initializeApp(config);
-   
-    // Get a reference to the database service
-    var database = firebase.database();
-
+  var database = firebase.database();
 </script>
 
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
@@ -44,7 +42,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-     
+ 
+
  <a href="../index.jsp">
        <img src="../images/logo.png" width="10%" height="px">
        </a>
@@ -76,16 +75,16 @@ margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: auto; tex
   </div>
                 <br/>
                 <label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="male"> Male
-</label>
-<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="female"> Female
+  <input type="radio" name="gender" id="sex1" value="male" checked="checked"> Male
+
+
+  <input type="radio" name="gender" id="sex2" value="female"> Female
 </label>
                 <br/>
                 <br/>
                 <div class="inline">
                 <lable class="inline"> Day
-                <select class="form-control">
+                <select id="day" class="form-control">
   <option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option> <option>6</option
    <option>7</option> <option>8</option> <option>9</option> <option>10</option> <option>11</option> <option>12</option>
     <option>13</option> <option>14</option> <option>15</option> <option>16</option> <option>17</option> <option>18</option>
@@ -97,7 +96,7 @@ margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: auto; tex
                     </lable>
                     
                 <lable class="inline">Month
-                <select class="form-control">
+                <select id="month" class="form-control">
   
   <option>1</option>
   <option>2</option>
@@ -115,7 +114,7 @@ margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: auto; tex
                     </lable>
                     
                 <lable class="inline">Year
-                <select class="form-control">
+                <select id="year" class="form-control">
    <option>2018</option> <option>2017</option> <option>2016</option> <option>2015</option>
   <option>2014</option> <option>2013</option> <option>2012</option> <option>2011</option> <option>2010</option> 
   <option>2009</option> <option>2008</option> <option>2007</option> <option>2006</option> <option>2005</option> 
@@ -152,14 +151,30 @@ margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: auto; tex
     function signup(){
                       var useremail = $("#loginEmail").val();
                       var userpassword = $("#loginPassword").val();
+                      var lastname = $("#lname").val();
+                      var firstname = $("#fname").val();
+                      var num = $("#number").val();
+                      var gender = $("input:radio[name='gender']:checked").val();
+                      var dob = $('#day option:selected').val()+"/"+$('#month option:selected').val()+"/"+$('#year option:selected').val();
     firebase.auth().createUserWithEmailAndPassword(useremail, userpassword).catch(function(error) {
-  
+ 
   var errorCode = error.code;
   var errorMessage = error.message;
   window.alert("Error: " + errorMessage);
     });
+    
   firebase.auth().onAuthStateChanged(function(user){
     if(user) {
+        firebase.database().ref('Users/'+user.uid).set({
+    Email: useremail,
+    Password: userpassword,
+    Lastname: lastname,
+    Firstname: firstname,
+    PhoneNum: num,
+    Gender: gender,
+    DOB: dob
+    
+  });   
      window.alert("Sign up successfully");
   window.location.href='vetify.jsp';
 
