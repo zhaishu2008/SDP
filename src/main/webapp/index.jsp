@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -56,6 +56,8 @@
          $("#smbtn").click(function(){window.location.href="./view/signup.jsp";});
     }
         });
+        
+        
           </script>
  
   
@@ -83,7 +85,7 @@
                  <br/>
                  Specific doctors can
                   be selected by patients. 
-                  dasd
+                  
            </p>
            </div>
        
