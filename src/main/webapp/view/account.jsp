@@ -21,6 +21,19 @@
   };
   firebase.initializeApp(config);
   var database = firebase.database();
+</script><script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB3tgflnOWGhR0EVvjW6ldubM6vSdNqBFE",
+    authDomain: "premium-origin-217008.firebaseapp.com",
+    databaseURL: "https://premium-origin-217008.firebaseio.com",
+    projectId: "premium-origin-217008",
+    storageBucket: "premium-origin-217008.appspot.com",
+    messagingSenderId: "1538681596"
+  };
+  firebase.initializeApp(config);
+  var database = firebase.database();
 </script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
@@ -55,20 +68,19 @@
    $('.collapse').collapse();
    
    
-   function writeUserData() {
+   
        var user = firebase.auth().currentUser; 
     var email= user.email;
-  firebase.database().ref('users/').set({
+  firebase.database().ref('users').set({
     
     email: email;
     
   });
-}
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="../index.jsp">
-    <img src="../images/logo.png" width="60px" height="60px" class="d-inline-block align-top" onlick="writeUserData()" alt="">
+    <img src="../images/logo.png" width="60px" height="60px" class="d-inline-block align-top" alt="">
     HSP
   </a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
