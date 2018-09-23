@@ -20,6 +20,7 @@
     messagingSenderId: "1538681596"
   };
   firebase.initializeApp(config);
+  var database = firebase.database();
 </script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
@@ -52,11 +53,22 @@
         window.location.herf="index.jsp";
    }});
    $('.collapse').collapse();
+   
+   
+   function writeUserData() {
+       var user = firebase.auth().currentUser; 
+    var email= user.email;
+  firebase.database().ref('users/').set({
+    
+    email: email;
+    
+  });
+}
 </script>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="../index.jsp">
-    <img src="../images/logo.png" width="60px" height="60px" class="d-inline-block align-top" alt="">
+    <img src="../images/logo.png" width="60px" height="60px" class="d-inline-block align-top" onlick="writeUserData()" alt="">
     HSP
   </a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
