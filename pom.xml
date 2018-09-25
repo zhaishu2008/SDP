@@ -79,10 +79,10 @@
    <version>1.3.2</version>
 </plugin>
             <plugin>
-            <groupId>com.google.appengine</groupId>
-            <artifactId>appengine-maven-plugin</artifactId>
-            <version>1.9.65</version>
-        </plugin>
+   <groupId>com.google.appengine</groupId>
+   <artifactId>appengine-maven-plugin</artifactId>
+   <version>1.9.65</version>
+</plugin>
         </plugins>
     </build>
 
