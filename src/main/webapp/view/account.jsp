@@ -1,8 +1,3 @@
-<%-- 
-    Document   : account
-    Created on : Sep 1, 2018, 1:55:16 AM
-    Author     : Jesse
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,28 +7,14 @@
 <script>
   // Initialize Firebase
   var config = {
-    apiKey: "AIzaSyB3tgflnOWGhR0EVvjW6ldubM6vSdNqBFE",
-    authDomain: "premium-origin-217008.firebaseapp.com",
-    databaseURL: "https://premium-origin-217008.firebaseio.com",
-    projectId: "premium-origin-217008",
-    storageBucket: "premium-origin-217008.appspot.com",
-    messagingSenderId: "1538681596"
+    apiKey: "AIzaSyB6iLL-8kKBU_SHTjh6Fct9QKtTRi0_7fY",
+    authDomain: "hospital-reservation-sys-affef.firebaseapp.com",
+    databaseURL: "https://hospital-reservation-sys-affef.firebaseio.com",
+    projectId: "hospital-reservation-sys-affef",
+    storageBucket: "hospital-reservation-sys-affef.appspot.com",
+    messagingSenderId: "648319940592"
   };
   firebase.initializeApp(config);
-  var database = firebase.database();
-</script><script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyB3tgflnOWGhR0EVvjW6ldubM6vSdNqBFE",
-    authDomain: "premium-origin-217008.firebaseapp.com",
-    databaseURL: "https://premium-origin-217008.firebaseio.com",
-    projectId: "premium-origin-217008",
-    storageBucket: "premium-origin-217008.appspot.com",
-    messagingSenderId: "1538681596"
-  };
-  firebase.initializeApp(config);
-  var database = firebase.database();
 </script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
@@ -42,7 +23,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-functions.js"></script>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Hospital Reservation System</title>
+        <title>Seminar Booking System</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css" type="text/css">
         <meta charset="UTF-8">
@@ -80,8 +61,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="../index.jsp">
-    <img src="../images/logo.png" width="60px" height="60px" class="d-inline-block align-top" alt="">
-    HSP
+    <img  width="60px" height="60px" class="d-inline-block align-top" alt="">
+    SBS
   </a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">

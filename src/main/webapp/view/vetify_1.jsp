@@ -39,38 +39,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<script>
-    function vetify(){
-    var user = firebase.auth().currentUser; 
-    var email= user.email;
-    $("#p").html("Please check your email ("+email +") for verification");
-user.sendEmailVerification().then(function() {
-     window.alert("sent verification to your email");
-}).catch(function(error) {
-});   
-firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}).catch(function(error) {
-  // An error happened.
-});
-    
-    
-</script>
  <a href="../index.jsp">
        <img  width="10%" height="92px">
        </a>
 
-<p onload="check()"><h2 id="p" style="text-align: center;">Please check your email for verification</h2></p>
 <button id="lgbtn" onclick="vetify()" style="margin-left: 50%;" class="btn btn-lg btn-warning">Vetify</button>
         
     </body>
-    <script>
-        function check(){
-        var user = firebase.auth().currentUser; 
-        var email_vetified= user.emailVertified;
-        if (email_vetified)
-            window.location.href='account.jsp';
-    }
-    
-    </script>
+   
 </html>
