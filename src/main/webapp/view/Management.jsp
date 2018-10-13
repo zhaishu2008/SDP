@@ -69,7 +69,7 @@
          </tr>
     </table></div>
             <br>
-   <div class="h2"><button id="logout" class="LogOutBt">Log out</button></div>
+ 
 
     </div>
             <div class="h3"><a href="userregister.jsp">User</a></div>
@@ -77,6 +77,6 @@
  </h1>
 
 
-
+  <div class="h2"><button id="logout" class="LogOutBt">Log out</button></div>
     </body>
 </html>

@@ -55,9 +55,7 @@
                 </div>
 
                 <center><input type =“button” value="Log in" class="btn btn-primary" onclick="login()"></center>
-                <br />
-                <br />
-                <div class="help-block">Dont't have an account?</div><a href='signup.jsp'>Sign up</a>
+                <br />         
             </form>
         </div>
 
@@ -69,19 +67,19 @@
                 var email = $("#loginEmail").val();
                 var password = $("#loginPassword").val();
 
-                firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+                firebase.signInWithEmailAndPassword(email, password).catch(function (error) {
                     // Handle Errors here.
                     var errorCode = error.code;
                     var errorMessage = error.message;
                     window.alert("Error: " + errorMessage);
                 });
 
-                firebase.auth().onAuthStateChanged(function (user) {
+                firebase.onAuthStateChanged(function (user) {
                     if (user) {
 
                         var uid = user.uid;
                         if (uid.indexOf("AZb6cOObuOG5e1m0pQ") > 0) {
-                            window.location.href = "Admin.jsp";
+                            window.location.href = "Management.jsp";
                         }
                         firebase.database().ref('/Users/' + uid).once('value').then(function (snapshot) {
                             var type = snapshot.val().Type;

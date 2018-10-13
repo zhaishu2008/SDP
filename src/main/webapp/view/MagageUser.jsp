@@ -78,24 +78,6 @@
 
     </div>
   </h1>
-  <script>
-
-             function myFunction(){
-                 var popup = document.getElementById("myPopup");
-                 popup.classList.toggle("show");
-             }
-
-             function myFunctiona(){
-                 var popup = document.getElementById("myPopups");
-                 popup.classList.toggle("show");
-             }
-
-             function myFunctions(){
-                 var popup = document.getElementById("myPopupx");
-                 popup.classList.toggle("show");
-             }
-
-</script>
 </body>
 </html>
 
