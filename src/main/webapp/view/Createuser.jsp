@@ -12,20 +12,18 @@
 
         <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
         <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyB6iLL-8kKBU_SHTjh6Fct9QKtTRi0_7fY",
-                authDomain: "hospital-reservation-sys-affef.firebaseapp.com",
-                databaseURL: "https://hospital-reservation-sys-affef.firebaseio.com",
-                projectId: "hospital-reservation-sys-affef",
-                storageBucket: "hospital-reservation-sys-affef.appspot.com",
-                messagingSenderId: "648319940592"
-            };
-            firebase.initializeApp(config);
-            var database = firebase.database();
-        </script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAJuqSUJjoWEbfh8gOtEkqaiwQ3LeXCLME",
+    authDomain: "sdp-seminar-booking.firebaseapp.com",
+    databaseURL: "https://sdp-seminar-booking.firebaseio.com",
+    projectId: "sdp-seminar-booking",
+    storageBucket: "sdp-seminar-booking.appspot.com",
+    messagingSenderId: "125542536172"
+  };
+  firebase.initializeApp(config);
+</script>
 
-        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-messaging.js"></script>
@@ -44,7 +42,7 @@
         </a>
 
 
-        <div style="height:60px; line-height: 60px; font-family:verdana; font-size:120%; color: white; background-color: #1D6DF1;">Sign up</div>
+        <div style="height:60px; line-height: 60px; font-family:verdana; font-size:120%; color: white; background-color: #1D6DF1;">Create user</div>
         <form style="background-color: white; height:950px; padding: 60px;">
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
@@ -79,14 +77,11 @@
 
                     <br/>
                     <br/>
-                    <center><input type =“button” value="Sign up" class="btn btn-primary" onclick="signup()"></center>
+                    <center><input type =“button” value="Create" class="btn btn-primary" onclick="Create()"></center>
                     <br />
                     <br />
-                    <div class="help-block">Already have an account.</div><a href='login.jsp'>Log in</a>
-                    </form>
-            </div>
             <script>
-                function signup() {
+                function Create() {
                     var useremail = $("#loginEmail").val();
                     var userpassword = $("#loginPassword").val();
                     var lastname = $("#lname").val();
@@ -108,9 +103,7 @@
                                 Firstname: firstname,
                                 Type: type
                             });
-                            window.alert("Sign up successfully");
-                            window.location.href = 'vetify.jsp';
-
+                            window.alert("Create user successfully");                           
                         }
 
                     });

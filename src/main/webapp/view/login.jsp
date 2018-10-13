@@ -11,84 +11,97 @@
         <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
 
-<script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyB6iLL-8kKBU_SHTjh6Fct9QKtTRi0_7fY",
-    authDomain: "hospital-reservation-sys-affef.firebaseapp.com",
-    databaseURL: "https://hospital-reservation-sys-affef.firebaseio.com",
-    projectId: "hospital-reservation-sys-affef",
-    storageBucket: "hospital-reservation-sys-affef.appspot.com",
-    messagingSenderId: "648319940592"
-  };
-  firebase.initializeApp(config);
-</script>
-<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-functions.js"></script>
+
+
+        <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyBotGjTPo84Ak-MTTzHxmZG60rBahWDHfQ",
+                authDomain: "uts-dummy-database.firebaseapp.com",
+                databaseURL: "https://uts-dummy-database.firebaseio.com",
+                projectId: "uts-dummy-database",
+                storageBucket: "uts-dummy-database.appspot.com",
+                messagingSenderId: "454655610210"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-messaging.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-functions.js"></script>
 
     </head>
     <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-     
- <a href="../index.jsp">
-       <img src="../images/logo.png" width="10%" height="92px">
-       </a>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
         <div style="width: 500px;
-margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: auto; text-align: center;
-">
+             margin-left: auto; margin-right: auto; margin-top: 10%; margin-bottom: auto; text-align: center;
+             ">
             <div style="height:60px; line-height: 60px; font-family:verdana; font-size:120%; color: white; background-color: #1D6DF1;">Log in</div>
             <form style="background-color: white; height: 400px; padding: 60px;">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="loginEmail" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password"class="form-control" id="loginPassword" placeholder="Password">
-  </div>
-          
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="loginEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password"class="form-control" id="loginPassword" placeholder="Password">
+                </div>
+
                 <center><input type =“button” value="Log in" class="btn btn-primary" onclick="login()"></center>
                 <br />
                 <br />
                 <div class="help-block">Dont't have an account?</div><a href='signup.jsp'>Sign up</a>
-                </form>
-</div>
+            </form>
+        </div>
 
-<script>
-                   
-                    
-                    function login(){
-                      var useremail = $("#loginEmail").val();
-                      var userpassword = $("#loginPassword").val();
-                      firebase.auth().createUserWithEmailAndPassword(useremail, userpassword).catch(function(error) {
-  
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  
-  window.alert("Error: " + errorMessage);
- 
+        <script>
 
-}); 
-firebase.auth().onAuthStateChanged(function(user){
-    if(user) {
-     window.alert("Log in successfully");
-  window.location.href='account.jsp';
 
- }
-                    });};
-           
-                </script>
-        
+            function login() {
+
+                var email = $("#loginEmail").val();
+                var password = $("#loginPassword").val();
+
+                firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    window.alert("Error: " + errorMessage);
+                });
+
+                firebase.auth().onAuthStateChanged(function (user) {
+                    if (user) {
+
+                        var uid = user.uid;
+                        if (uid.indexOf("AZb6cOObuOG5e1m0pQ") > 0) {
+                            window.location.href = "Admin.jsp";
+                        }
+                        firebase.database().ref('/Users/' + uid).once('value').then(function (snapshot) {
+                            var type = snapshot.val().Type;
+                            if (type === Administrator) {
+                                window.location.href = Admin.jsp";
+                            } else {
+
+
+                                window.alert("Log in successfully");
+                                window.location.href = 'Homepage.jsp';
+                                console.log(uid);
+                            }
+                        });
+                    }
+                });
+            }
+
+
+
+        </script>
+
     </body>
 </html>
