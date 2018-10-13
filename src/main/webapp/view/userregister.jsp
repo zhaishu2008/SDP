@@ -2,7 +2,12 @@
 <head>
     <title></title>
 
-    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-functions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
     <script>
         // Initialize Firebase
@@ -10,20 +15,39 @@
             apiKey: "AIzaSyBotGjTPo84Ak-MTTzHxmZG60rBahWDHfQ",
             authDomain: "uts-dummy-database.firebaseapp.com",
             databaseURL: "https://uts-dummy-database.firebaseio.com",
-            projectId: "uts-dummy-database",
-            storageBucket: "uts-dummy-database.appspot.com",
-            messagingSenderId: "454655610210"
+            projectId: "uts-dummy-database.firebaseio.com/"
         };
-       firebase.initializeApp(config);
-          var ref = firebase.database().ref();
-            ref.on("value", function(snapshot) {
-               console.log(snapshot.val());
-            }, function (error) {
-               console.log("Error: " + error.code);
+        firebase.initializeApp(config);
+
+        $(document).ready(function () {
+            var userRef = firebase.database().ref('user/');
+
+            $('#Edit').on('click', function () {
+                var user = $('#input').val();
+
+                console.log(user);
+                userRef.push({
+                    email: user
+                });
             });
+
+            userRef.on("value", function (snapshot) {
+                var val = snapshot.val();
+                let list = '';
+
+                $.each(val, function (a, b) {
+                    console.log('each',a, b);
+                    list = `${list}<li>${b} <button type="button" class="remove" data-key="${a}">Delect</button></li>`;
+                });
+                $('#ml').html(list);
+            });
+                $('#rm').on('click','.remove', function(){
+                console.log('remove', $(this).data('key'));
+                });
+        });
     </script>
-    
-   
+
+
 
     <style>
         table {
@@ -51,29 +75,26 @@
     </table></div>
 </head>
 <body>
-    
+
     <br>  
     <br> 
-      
-    <table id="table">
-        <% String rs = ref()
-            %>
+
+    <table border="1">
+
         <tr>
             <th>choose</th>
             <th>account</th>
         </tr>
 
-            <tr id="+${b.getId()}+">
-                <td><input type="checkbox" name="test"></td>
-                <td class="idd" >${b.getId()}</td> 
-                <td>${b.getBjsName()}</td>
-                <td><input name="upd" type="button" value="Edit" onClick="upd(${b.getId()})"/></td>
-                <td><input name="upd" type="button" value="Delect" onClick="upd(${b.getId()})"/></td>
-                    <%-- <td><input name="del"  type="button" value="edit" onClick="del(${b.getId()})"/></td> --%>
-            </tr>
+        <tr>
+            <td><input type="checkbox" name="test"></td>
+            <td id="ml" ></td> 
+            <td><input name="upd" type="button" value="Edit" onClick="upd(${b.getId()})"/></td>
+                <%-- <td><input name="del"  type="button" value="edit" onClick="del(${b.getId()})"/></td> --%>
+        </tr>
 
-        </c:forEach>
     </table>
+
 
 
 
